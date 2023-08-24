@@ -15,10 +15,10 @@ app.post("/authenticate", async (req, res) => {
         'https://api.chatengine.io/users/',
         {username: username, secret: username, first_name: username},
         {headers: {"private-key": process.env.KEY}}
-    )
+    );
     return res.status(r.status).json(r.data)
   } catch (e) {
-    return res.status(e.response.status).json(r.response.data)
+    return res.status(e.response).json(e.response);
   }
 });
 
